@@ -1,3 +1,5 @@
+Looking at the code, I can see it's cut off mid-way through the HTML - the file is incomplete! The JavaScript that handles page switching is missing, and the HTML structure isn't closed properly. Let me reconstruct the complete, working file.
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -74,7 +76,6 @@
     }
 
     /* ===== 页面容器 ===== */
-    /* 主页面（大板块） */
     .page {
       display: none;
       animation: fadeIn 0.5s ease;
@@ -84,7 +85,6 @@
       display: block;
     }
 
-    /* 子页面（每个板块的详情页） */
     .subpage {
       display: none;
       animation: fadeIn 0.5s ease;
@@ -153,14 +153,13 @@
       padding: 0 20px;
     }
 
-    /* 可点击的卡片样式 */
     .image-card {
       background: white;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer; /* 鼠标变成手形，提示可点击 */
+      cursor: pointer;
       position: relative;
     }
 
@@ -169,7 +168,6 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
-    /* 点击提示箭头 */
     .image-card::after {
       content: "点击查看 →";
       position: absolute;
@@ -231,7 +229,6 @@
       gap: 16px;
     }
 
-    /* 介绍卡片也可点击跳转 */
     .intro-card {
       background: white;
       border-radius: 16px;
@@ -267,7 +264,6 @@
       font-size: 0.9rem;
     }
 
-    /* "点击进入"小标签 */
     .intro-card .card-link-hint {
       display: inline-block;
       margin-top: 14px;
@@ -359,7 +355,7 @@
       color: white;
     }
 
-    /* ===== 页面顶部标题（用于知识页、活动页） ===== */
+    /* ===== 页面顶部标题 ===== */
     .page-header {
       background: linear-gradient(135deg, #1b5e20, #1565c0);
       color: white;
@@ -385,29 +381,12 @@
       position: relative;
     }
 
-    .subpage-header.water-bg {
-      background: linear-gradient(135deg, #0d47a1, #1565c0, #1976d2);
-    }
-
-    .subpage-header.recycle-bg {
-      background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
-    }
-
-    .subpage-header.campus-bg {
-      background: linear-gradient(135deg, #4a148c, #7b1fa2, #9c27b0);
-    }
-
-    .subpage-header.carbon-bg {
-      background: linear-gradient(135deg, #00695c, #00897b, #26a69a);
-    }
-
-    .subpage-header.events-bg {
-      background: linear-gradient(135deg, #e65100, #f57c00, #ff9800);
-    }
-
-    .subpage-header.pledge-bg {
-      background: linear-gradient(135deg, #880e4f, #ad1457, #c2185b);
-    }
+    .subpage-header.water-bg   { background: linear-gradient(135deg, #0d47a1, #1565c0, #1976d2); }
+    .subpage-header.recycle-bg { background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c); }
+    .subpage-header.campus-bg  { background: linear-gradient(135deg, #4a148c, #7b1fa2, #9c27b0); }
+    .subpage-header.carbon-bg  { background: linear-gradient(135deg, #00695c, #00897b, #26a69a); }
+    .subpage-header.events-bg  { background: linear-gradient(135deg, #e65100, #f57c00, #ff9800); }
+    .subpage-header.pledge-bg  { background: linear-gradient(135deg, #880e4f, #ad1457, #c2185b); }
 
     .subpage-header h1 {
       font-size: 2rem;
@@ -421,7 +400,7 @@
       margin: 0 auto;
     }
 
-    /* ===== 面包屑导航（显示当前位置） ===== */
+    /* ===== 面包屑导航 ===== */
     .breadcrumb {
       background: #f5f5f5;
       border-bottom: 1px solid #e0e0e0;
@@ -446,7 +425,6 @@
       padding: 30px 20px;
     }
 
-    /* 知识主题标题 */
     .topic-title {
       display: flex;
       align-items: center;
@@ -467,7 +445,6 @@
       color: #0d47a1;
     }
 
-    /* 知识卡片（可点击的，跳转到子页面） */
     .knowledge-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -509,7 +486,6 @@
       line-height: 1.7;
     }
 
-    /* 卡片底部的"查看详情"标签 */
     .know-card .read-more {
       display: inline-block;
       margin-top: 12px;
@@ -539,10 +515,10 @@
     .bin-card .bin-name { font-size: 1.1rem; margin-bottom: 8px; }
     .bin-card .bin-items { font-size: 0.82rem; opacity: 0.9; font-weight: normal; }
 
-    .bin-blue   { background: linear-gradient(135deg, #1e88e5, #0d47a1); }
-    .bin-green  { background: linear-gradient(135deg, #43a047, #1b5e20); }
-    .bin-red    { background: linear-gradient(135deg, #e53935, #b71c1c); }
-    .bin-gray   { background: linear-gradient(135deg, #757575, #424242); }
+    .bin-blue  { background: linear-gradient(135deg, #1e88e5, #0d47a1); }
+    .bin-green { background: linear-gradient(135deg, #43a047, #1b5e20); }
+    .bin-red   { background: linear-gradient(135deg, #e53935, #b71c1c); }
+    .bin-gray  { background: linear-gradient(135deg, #757575, #424242); }
 
     /* 小贴士框 */
     .tip-box {
@@ -553,20 +529,11 @@
       margin: 20px 0;
     }
 
-    .tip-box h4 {
-      color: #e65100;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
+    .tip-box h4 { color: #e65100; font-size: 1rem; margin-bottom: 10px; }
 
-    .tip-box ul {
-      list-style: none;
-      padding: 0;
-    }
+    .tip-box ul { list-style: none; padding: 0; }
 
-    .tip-box ul li::before {
-      content: "✅ ";
-    }
+    .tip-box ul li::before { content: "✅ "; }
 
     .tip-box ul li {
       color: #4e342e;
@@ -584,17 +551,12 @@
       border-left: 5px solid #4caf50;
     }
 
-    .info-block.blue-block { border-left-color: #2196f3; }
+    .info-block.blue-block   { border-left-color: #2196f3; }
     .info-block.orange-block { border-left-color: #ff9800; }
     .info-block.purple-block { border-left-color: #9c27b0; }
 
-    .info-block h3 {
-      color: #1b5e20;
-      font-size: 1.05rem;
-      margin-bottom: 10px;
-    }
-
-    .info-block.blue-block h3 { color: #0d47a1; }
+    .info-block h3 { color: #1b5e20; font-size: 1.05rem; margin-bottom: 10px; }
+    .info-block.blue-block h3   { color: #0d47a1; }
     .info-block.orange-block h3 { color: #e65100; }
     .info-block.purple-block h3 { color: #6a1b9a; }
 
@@ -604,9 +566,7 @@
       line-height: 1.8;
     }
 
-    .info-block ul {
-      padding-left: 20px;
-    }
+    .info-block ul { padding-left: 20px; }
 
     /* 大数据展示卡 */
     .stats-row {
@@ -672,17 +632,9 @@
       padding: 18px;
     }
 
-    .activity-body h3 {
-      color: #1b5e20;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
+    .activity-body h3 { color: #1b5e20; font-size: 1.05rem; margin-bottom: 8px; }
 
-    .activity-body p {
-      color: #546e7a;
-      font-size: 0.88rem;
-      line-height: 1.6;
-    }
+    .activity-body p { color: #546e7a; font-size: 0.88rem; line-height: 1.6; }
 
     .activity-tag {
       display: inline-block;
@@ -724,11 +676,7 @@
       box-shadow: 0 6px 20px rgba(76,175,80,0.2);
     }
 
-    .pledge-content h2 {
-      color: #1b5e20;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
+    .pledge-content h2 { color: #1b5e20; font-size: 1.5rem; margin-bottom: 20px; }
 
     .pledge-content p {
       color: #37474f;
@@ -745,7 +693,7 @@
       font-size: 1rem;
     }
 
-    /* 时间线样式（活动详情页用） */
+    /* 时间线样式 */
     .timeline {
       position: relative;
       padding-left: 30px;
@@ -785,16 +733,8 @@
       box-shadow: 0 0 0 2px #4caf50;
     }
 
-    .timeline-item h4 {
-      color: #1b5e20;
-      font-size: 0.95rem;
-      margin-bottom: 5px;
-    }
-
-    .timeline-item p {
-      color: #607d8b;
-      font-size: 0.85rem;
-    }
+    .timeline-item h4 { color: #1b5e20; font-size: 0.95rem; margin-bottom: 5px; }
+    .timeline-item p  { color: #607d8b; font-size: 0.85rem; }
 
     /* 互动打卡按钮 */
     .checkin-box {
@@ -806,10 +746,7 @@
       margin: 20px 0;
     }
 
-    .checkin-box h3 {
-      color: #e65100;
-      margin-bottom: 12px;
-    }
+    .checkin-box h3 { color: #e65100; margin-bottom: 12px; }
 
     .checkin-btn {
       background: linear-gradient(135deg, #ff9800, #e65100);
@@ -826,9 +763,7 @@
       box-shadow: 0 4px 12px rgba(255,152,0,0.4);
     }
 
-    .checkin-btn:hover {
-      transform: scale(1.07);
-    }
+    .checkin-btn:hover { transform: scale(1.07); }
 
     .checkin-result {
       margin-top: 14px;
@@ -853,10 +788,10 @@
 
     /* ===== 响应式：手机端适配 ===== */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .page-header h1 { font-size: 1.5rem; }
+      .hero h1       { font-size: 1.8rem; }
+      .page-header h1  { font-size: 1.5rem; }
       .subpage-header h1 { font-size: 1.5rem; }
-      .nav-logo { font-size: 1rem; }
+      .nav-logo      { font-size: 1rem; }
       .pledge-content { padding: 20px; }
     }
 
@@ -884,7 +819,26 @@
     <div class="nav-inner">
       <div class="nav-logo">🌿 校园环保行动站</div>
       <div class="nav-links">
-        <!-- 导航按钮：点击切换主页面 -->
         <button class="active" onclick="showPage('home', this)">🏠 首页</button>
         <button onclick="showPage('knowledge', this)">📚 环保知识</button>
-        <button onclick="showPage('activity', this)">🎉 活动展示
+        <button onclick="showPage('activity', this)">🎉 活动展示</button>
+        <button onclick="showPage('pledge', this)">✍️ 环保倡议</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       🏠 首页
+  ================================================================ -->
+  <div id="page-home" class="page active">
+
+    <!-- 英雄区域 -->
+    <div class="hero">
+      <h1>🌍 校园环保行动站</h1>
+      <p>让我们一起行动，从校园开始，守护我们共同的地球家园！</p>
+      <div>
+        <span class="hero-badge">🌱 绿色校园</span>
+        <span class="hero-badge">♻️ 垃圾分类</span>
+        <span class="hero-badge">💧 节约用水</span>
+        <span class="hero-badge">🌿 低碳生活</span>
+      </div
